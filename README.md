@@ -4,6 +4,15 @@ The awesome collections for development
 ### Bootstrap Theme
 * devoops: https://github.com/devoopsme/devoops
 * bootswatch: https://github.com/thomaspark/bootswatch
+* roots - WordPress starter theme: https://github.com/roots/roots
+* bootstrap material design: https://github.com/FezVrasta/bootstrap-material-design
+* startBootstrap - free Bootstrap themes: https://github.com/IronSummitMedia/startbootstrap
+* adminLTE - Free Premium Admin control Panel Theme: https://github.com/almasaeed2010/AdminLTE
+* startbootstrap-sb-admin: https://github.com/IronSummitMedia/startbootstrap-sb-admin-2
+* 1pxdeep: https://github.com/rriepe/1pxdeep
+* bootstrap-zero - themes & templates: https://github.com/iatek/bootstrap-zero
+* login page: http://www.bootstrapzero.com/bootstrap-template/sign-in
+* bootsketch - sketches style: http://yago.github.io/Bootsketch/
 
 ### MVC
 * backboneJS: http://backbonejs.org/
