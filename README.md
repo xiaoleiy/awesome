@@ -13,6 +13,8 @@ The awesome collections for development
 * bootstrap-zero - themes & templates: https://github.com/iatek/bootstrap-zero
 * login page: http://www.bootstrapzero.com/bootstrap-template/sign-in
 * bootsketch - sketches style: http://yago.github.io/Bootsketch/
+* __media-center__: http://demo.transvelo.com/media-center/
+* bootstrap-rtl: https://github.com/morteza/bootstrap-rtl
 
 #### MVC
 * backboneJS: http://backbonejs.org/
