@@ -1,7 +1,7 @@
 # awesome
 The awesome collections for development
 
-### Bootstrap Theme
+#### Bootstrap Theme
 * devoops: https://github.com/devoopsme/devoops
 * bootswatch: https://github.com/thomaspark/bootswatch
 * roots - WordPress starter theme: https://github.com/roots/roots
@@ -14,22 +14,22 @@ The awesome collections for development
 * login page: http://www.bootstrapzero.com/bootstrap-template/sign-in
 * bootsketch - sketches style: http://yago.github.io/Bootsketch/
 
-### MVC
+#### MVC
 * backboneJS: http://backbonejs.org/
 * underscoreJS: http://underscorejs.org/
 
-### Forms
+#### Forms
 * select2 - select box: https://github.com/select2/select2
 * validation: https://github.com/formvalidation/formvalidation
 * full calendar: http://fullcalendar.io/
 * moment - date manipulation: https://github.com/moment/moment/
 * tinymce - posting: https://github.com/tinymce/tinymce
 
-### Components
+#### Components
 * jQuery Knob - dail: https://github.com/aterrien/jQuery-Knob
 * justified gallary - picutres gallary: https://github.com/miromannino/Justified-Gallery
 
-### Charts & Graphs
+#### Charts & Graphs
 * morris - charts: https://github.com/morrisjs/morris.js
 * d3: https://github.com/mbostock/d3
 * nvd3 - D3: https://github.com/novus/nvd3
