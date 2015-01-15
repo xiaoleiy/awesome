@@ -37,4 +37,8 @@ The awesome collections for development
 * d3: https://github.com/mbostock/d3
 * nvd3 - D3: https://github.com/novus/nvd3
 * springy - A force directed graph layout algorithm: https://github.com/dhotson/springy/
-facetrackr
+
+#### Face Recognition
+* headtrackr: https://github.com/auduno/headtrackr
+* __examples - facetrackr__: http://auduno.github.io/headtrackr/examples/facetracking.html
+* face++: http://faceplusplus.com.cn
