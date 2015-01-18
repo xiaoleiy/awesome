@@ -29,7 +29,8 @@ The awesome collections for development
 * tinymce - posting: https://github.com/tinymce/tinymce
 
 #### Components
-|Component |Link|
+|Component  |Link |
+|----       |---  |
 |jQuery Knob | https://github.com/aterrien/jQuery-Knob|
 
 * jQuery Knob - dail: https://github.com/aterrien/jQuery-Knob
