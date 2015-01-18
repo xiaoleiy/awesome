@@ -34,6 +34,7 @@ The awesome collections for development
 |jQuery Knob      |https://github.com/aterrien/jQuery-Knob  |  |
 |justified gallary|https://github.com/miromannino/Justified-Gallery | picutres gallary|
 |spin.js          |http://fgnass.github.io/spin.js/|progress indicator|
+|animate.js       |https://github.com/daneden/animate.css| |
 
 #### Charts & Graphs
 * morris - charts: https://github.com/morrisjs/morris.js
