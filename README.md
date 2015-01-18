@@ -30,7 +30,7 @@ The awesome collections for development
 
 #### Components
 |Name             |Link                                     |Description|
-|:---------------:| :---------------------------------------|:--------  |
+|:--------------- | :---------------------------------------|:--------  |
 |jQuery Knob      |https://github.com/aterrien/jQuery-Knob  |  |
 |justified gallary|https://github.com/miromannino/Justified-Gallery | picutres gallary|
 |spin.js          |http://fgnass.github.io/spin.js/|progress indicator|
