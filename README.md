@@ -31,6 +31,7 @@ The awesome collections for development
 #### Components
 * jQuery Knob - dail: https://github.com/aterrien/jQuery-Knob
 * justified gallary - picutres gallary: https://github.com/miromannino/Justified-Gallery
+* spin.js - progress indicator: http://fgnass.github.io/spin.js/
 
 #### Charts & Graphs
 * morris - charts: https://github.com/morrisjs/morris.js
