@@ -46,3 +46,8 @@ The awesome collections for development
 * headtrackr: https://github.com/auduno/headtrackr
 * __examples - facetrackr__: http://auduno.github.io/headtrackr/examples/facetracking.html
 * face++: http://faceplusplus.com.cn
+
+#### NodeJS
+|Name     |Link                                     |Description|
+|:------- | :---------------------------------------|:--------  |
+|grant    |https://github.com/simov/grant           |Authentication Middleware for Express and Koa -- 84 Supported Providers|
