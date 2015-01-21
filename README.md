@@ -35,6 +35,7 @@ The awesome collections for development
 |justified gallary|https://github.com/miromannino/Justified-Gallery | picutres gallary|
 |spin.js          |http://fgnass.github.io/spin.js/|progress indicator|
 |animate.js       |https://github.com/daneden/animate.css| |
+|sweet alert      |https://github.com/t4t5/sweetalert||
 
 #### Charts & Graphs
 * morris - charts: https://github.com/morrisjs/morris.js
