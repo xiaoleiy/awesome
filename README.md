@@ -36,6 +36,7 @@ The awesome collections for development
 |spin.js          |http://fgnass.github.io/spin.js/|progress indicator|
 |animate.js       |https://github.com/daneden/animate.css| |
 |sweet alert      |https://github.com/t4t5/sweetalert||
+|flip clock       |https://github.com/objectivehtml/FlipClock||
 
 #### Charts & Graphs
 * morris - charts: https://github.com/morrisjs/morris.js
