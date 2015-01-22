@@ -53,3 +53,8 @@ The awesome collections for development
 |:------- | :---------------------------------------|:--------  |
 |grant    |https://github.com/simov/grant           |Authentication Middleware for Express and Koa -- 84 Supported Providers|
 |sequelize|https://github.com/sequelize/sequelize|ORM: MySQL, MariaDB, SQLite, PostgreSQL and MSSQL|
+
+#### jQuery
+|Name     |Link                                     |Description|
+|:------- | :---------------------------------------|:--------  |
+|jquery-patterns|https://github.com/jquery-boilerplate/jquery-patterns|A variety of jQuery plugin patterns for jump starting your plugin development|
