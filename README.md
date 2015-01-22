@@ -52,3 +52,4 @@ The awesome collections for development
 |Name     |Link                                     |Description|
 |:------- | :---------------------------------------|:--------  |
 |grant    |https://github.com/simov/grant           |Authentication Middleware for Express and Koa -- 84 Supported Providers|
+|sequelize|https://github.com/sequelize/sequelize|ORM: MySQL, MariaDB, SQLite, PostgreSQL and MSSQL|
