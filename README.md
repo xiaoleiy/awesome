@@ -59,3 +59,67 @@ The awesome collections for development
 |Name     |Link                                     |Description|
 |:------- | :---------------------------------------|:--------  |
 |jquery-patterns|https://github.com/jquery-boilerplate/jquery-patterns|A variety of jQuery plugin patterns for jump starting your plugin development|
+
+#### Solution
+|Name     |Link                                     |Problem|
+|:------- | :---------------------------------------|:--------  |
+|offline.js|https://github.com/hubspot/offline  |network connection/disconnection detector|
+|offline.js simulator|https://github.com/craigshoemaker/offlinejs-simulate-ui  |simulate the connection up/down with a radio|
+
+The code for detecting online/offline with indicators:
+```Javascript
+//Object that will be exposed to the outside world. (Revealing Module Pattern)
+  var OfflineDetector = {};
+
+  //Flag indicating current network status.
+  var isOffline = false;
+
+  //Configuration Options for Offline.js
+  Offline.options = {
+      checks: {
+          xhr: {
+              //By default Offline.js queries favicon.ico.
+              // MAKE SURE the favicon.ico is listed in the part of NETWORK in chessboard.appcache
+              url: 'favicon.ico'
+          }
+      },
+      checkOnLoad: true,
+      interceptRequests: true,
+      reconnect: true,
+      requests: true,
+      game: false
+  };
+
+  //Offline.js raises the 'up' event when it is able to reach
+  //the server indicating that connection is up.
+  Offline.on('up', function () {
+      isOffline = false;
+  });
+
+  //Offline.js raises the 'down' event when it is unable to reach
+  //the server indicating that connection is down.
+  Offline.on('down', function () {
+      isOffline = true;
+  });
+
+  //Expose Offline.js instance for outside world!
+  OfflineDetector.Offline = Offline;
+
+  //OfflineDetector.isOffline() method returns the current status.
+  OfflineDetector.isOffline = function () {
+      return isOffline;
+  };
+
+  //start() method contains functionality to repeatedly
+  //invoke check() method of Offline.js.
+  //This repeated call helps in detecting the status.
+  OfflineDetector.start = function () {
+      var checkOfflineStatus = function () {
+          Offline.check();
+      };
+      setInterval(checkOfflineStatus, 3000);
+  };
+
+  //Start OfflineDetector
+  OfflineDetector.start();
+```
