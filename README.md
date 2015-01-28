@@ -34,7 +34,7 @@ The awesome collections for development
 |jQuery Knob      |https://github.com/aterrien/jQuery-Knob  |  |
 |justified gallary|https://github.com/miromannino/Justified-Gallery | picutres gallary|
 |spin.js          |http://fgnass.github.io/spin.js/|progress indicator|
-|animate.js       |https://github.com/daneden/animate.css| |
+|animate.js       |https://github.com/daneden/animate.css| 
 |sweet alert      |https://github.com/t4t5/sweetalert||
 |flip clock       |https://github.com/objectivehtml/FlipClock||
 
@@ -65,6 +65,9 @@ The awesome collections for development
 |:------- | :---------------------------------------|:--------  |
 |offline.js|https://github.com/hubspot/offline  |network connection/disconnection detector|
 |offline.js simulator|https://github.com/craigshoemaker/offlinejs-simulate-ui  |simulate the connection up/down with a radio|
+
+#### Tutorials
+[git] switch from https to SSH: https://github.com/waylau/github-help/blob/master/Changing%20a%20remote's%20URL%20%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%A8%8B%20URL.md
 
 The code for detecting online/offline with indicators:
 ```Javascript
