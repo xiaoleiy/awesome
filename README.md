@@ -69,6 +69,7 @@ The awesome collections for development
 #### Tutorials
 [git] switch from https to SSH: https://github.com/waylau/github-help/blob/master/Changing%20a%20remote's%20URL%20%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%A8%8B%20URL.md
 
+#### Code Snippets
 The code for detecting online/offline with indicators:
 ```Javascript
 //Object that will be exposed to the outside world. (Revealing Module Pattern)
@@ -110,7 +111,7 @@ The code for detecting online/offline with indicators:
 
   //OfflineDetector.isOffline() method returns the current status.
   OfflineDetector.isOffline = function () {
-      return isOffline;
+      return isOffline
   };
 
   //start() method contains functionality to repeatedly
