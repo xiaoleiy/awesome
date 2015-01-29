@@ -27,6 +27,7 @@ The awesome collections for development
 * full calendar: http://fullcalendar.io/
 * moment - date manipulation: https://github.com/moment/moment/
 * tinymce - posting: https://github.com/tinymce/tinymce
+* HTML5 forms support polyfill: https://github.com/ryanseddon/H5F
 
 #### Components
 |Name             |Link                                     |Description|
