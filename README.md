@@ -1,6 +1,13 @@
 # awesome
 The awesome collections for development
 
+#### UI framework
+* Semantic-UI: https://github.com/Semantic-Org/Semantic-UI
+* magic - css animation: https://github.com/miniMAC/magic
+* pure: https://github.com/yahoo/pure
+* foundation: https://github.com/zurb/foundation
+* react: https://github.com/facebook/react
+
 #### Bootstrap Theme
 * devoops: https://github.com/devoopsme/devoops
 * bootswatch: https://github.com/thomaspark/bootswatch
