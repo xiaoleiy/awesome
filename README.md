@@ -52,6 +52,7 @@ The awesome collections for development
 * d3: https://github.com/mbostock/d3
 * nvd3 - D3: https://github.com/novus/nvd3
 * springy - A force directed graph layout algorithm: https://github.com/dhotson/springy/
+* rickshaw - creating interactive real-time graphs: https://github.com/shutterstock/rickshaw
 
 #### Face Recognition
 * headtrackr: https://github.com/auduno/headtrackr
@@ -63,6 +64,7 @@ The awesome collections for development
 |:------- | :---------------------------------------|:--------  |
 |grant    |https://github.com/simov/grant           |Authentication Middleware for Express and Koa -- 84 Supported Providers|
 |sequelize|https://github.com/sequelize/sequelize|ORM: MySQL, MariaDB, SQLite, PostgreSQL and MSSQL|
+|node-wechat|https://github.com/node-webot/wechat|微信公共平台消息接口服务中间件|
 
 #### jQuery
 |Name     |Link                                     |Description|
