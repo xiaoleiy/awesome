@@ -7,6 +7,7 @@ The awesome collections for development
 * pure: https://github.com/yahoo/pure
 * foundation: https://github.com/zurb/foundation
 * react: https://github.com/facebook/react
+* bootstrap-material-design: https://github.com/FezVrasta/bootstrap-material-design
 
 #### Bootstrap Theme
 * devoops: https://github.com/devoopsme/devoops
