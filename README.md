@@ -70,6 +70,8 @@ The awesome collections for development
 |Name     |Link                                     |Description|
 |:------- | :---------------------------------------|:--------  |
 |jquery-patterns|https://github.com/jquery-boilerplate/jquery-patterns|A variety of jQuery plugin patterns for jump starting your plugin development|
+|jquery-windows|https://github.com/nick-jonas/nick-jonas.github.com/tree/master/windows|a handy, loosely-coupled jQuery plugin for full-screen scrolling windows|
+|jquery-chosen|https://github.com/harvesthq/chosen|Chosen is a library for making long, unwieldy select boxes more friendly.|
 
 #### Solution
 |Name     |Link                                     |Problem|
