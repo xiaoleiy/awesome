@@ -49,6 +49,9 @@ The awesome collections for development
 |sweet alert      |https://github.com/t4t5/sweetalert||
 |flip clock       |https://github.com/objectivehtml/FlipClock||
 
+#### CSS & animation
+* wow: https://github.com/matthieua/WOW
+
 #### Charts & Graphs
 * morris - charts: https://github.com/morrisjs/morris.js
 * d3: https://github.com/mbostock/d3
