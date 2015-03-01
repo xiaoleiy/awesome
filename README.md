@@ -24,6 +24,8 @@ The awesome collections for development
 * __media-center__: http://demo.transvelo.com/media-center/
 * bootstrap-rtl: https://github.com/morteza/bootstrap-rtl
 * gridgum: http://gridgum.com/
+* one-page: http://websites.simplesphere.net/cleany/
+* one-page: http://azmind.com/premium/marco/v1-1/layout-1/index.html
 
 #### MVC
 * backboneJS: http://backbonejs.org/
@@ -73,6 +75,8 @@ The awesome collections for development
 |jquery-windows|https://github.com/nick-jonas/nick-jonas.github.com/tree/master/windows|a handy, loosely-coupled jQuery plugin for full-screen scrolling windows|
 |jquery-chosen|https://github.com/harvesthq/chosen|Chosen is a library for making long, unwieldy select boxes more friendly.|
 |superscrollorama|https://github.com/johnpolacek/superscrollorama|The jQuery plugin for supercool scroll animation|
+|jquery-color|https://github.com/jquery/jquery-color|jQuery plugin for color manipulation and animation support.|
+|jquery-smooth-scroll|https://github.com/kswedberg/jquery-smooth-scroll|Automatically make same-page links scroll smoothly
 
 #### Solution
 |Name     |Link                                     |Problem|
