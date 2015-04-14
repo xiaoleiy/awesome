@@ -1,27 +1,6 @@
 # awesome
 The awesome collections for development
 
-Entities started.
-0.0: Broker: Cloud Resource List received with 2 resource(s)
-Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
-	at org.cloudbus.cloudsim.network.datacenter.WorkflowApp.createCloudletList(WorkflowApp.java:79)
-	at org.cloudbus.cloudsim.network.datacenter.NetDatacenterBroker.createVmsInDatacenterBase(NetDatacenterBroker.java:334)
-	at org.cloudbus.cloudsim.network.datacenter.NetDatacenterBroker.processResourceCharacteristics(NetDatacenterBroker.java:209)
-	at org.cloudbus.cloudsim.network.datacenter.NetDatacenterBroker.processEvent(NetDatacenterBroker.java:170)
-	at org.cloudbus.cloudsim.core.SimEntity.run(SimEntity.java:406)
-	at org.cloudbus.cloudsim.core.CloudSim.runClockTick(CloudSim.java:518)
-	at org.cloudbus.cloudsim.core.CloudSim.run(CloudSim.java:882)
-	at org.cloudbus.cloudsim.core.CloudSim.startSimulation(CloudSim.java:188)
-	at org.cloudbus.cloudsim.examples.network.datacenter.NetworkSimulation.main(NetworkSimulation.java:101)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:601)
-	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134)
-
-Process finished with exit code 1
-
-
 #### UI framework
 * Semantic-UI: https://github.com/Semantic-Org/Semantic-UI
 * magic - css animation: https://github.com/miniMAC/magic
