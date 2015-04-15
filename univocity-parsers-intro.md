@@ -64,14 +64,74 @@ The uniVocity-parsers achieved its purpose of maximum performance and flexibilit
 
 > When enabled, a reading thread (in `input.concurrent.ConcurrentCharInputReader`) will be started and load characters from the input,
 > while the parser is processing its input buffer. This yields better performance, especially when reading from big input (greater than 100 mb)
+>
 > When disabled, the parsing process will briefly pause so the buffer can be replenished every time
 > it is exhausted (in `DefaultCharInputReader` it is not as bad or slow as it sounds, and can even be (slightly) more efficient if your input is small)
 
 * Caching during reading and writing (set buffer size by invoking `CsvParserSettings.setInputBufferSize()`)
 
+> For concurrency reading with `input.concurrent.ConcurrentCharInputReader`, the size of "bucket" and quantity of "buckets"
+> are specified to for the cache pool. The `ConcurrentCharInputReader` will load "buckets" of characters in a separate thread
+> and provides them sequentially to the buffer defined by instance of  `CharBucket`.
+>
+> For sequential reading, input reader `DefaultCharInputReader` owns buffer with array of characters with initial size 1024 * 1024 bytes.
 
+* Concurrent row processor
 
-*
+> As an entry to process rows of data, the `ConcurrentRowProcessor` implements `RowProcessor` to perform row processing tasks in parallel.
+> It wraps another `RowProcessor` and collects rows read from the input. The actual row processing is performed in by wrapped RowProcessor in a separate thread.
+>
+> The row processing task is submitted to the thread pool implemented with `java.util.concurrent` package.
+> The thread pool is initialized with `new Executors.FinalizableDelegatedExecutorService(new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue()));`
+
+* Extend `RowProcessor` to process rows with your own business logic
+
+__For process rows with your own business logic__
+
+```java
+CsvParserSettings settings = new CsvParserSettings();
+settings.setRowProcessor(new RowProcessor() {
+    @Override
+    public void processStarted(ParsingContext context) {
+        System.out.println("Started to process rows of data.");
+    }
+    @Override
+    public void rowProcessed(String[] row, ParsingContext context) {
+        System.out.println("The row in line #" + context.currentLine() + ": ");
+        StringBuffer stringBuffer = new StringBuffer();
+        for (String col : row) {
+            stringBuffer.append(col).append("\t");
+        }
+        System.out.println(stringBuffer);
+    }
+    @Override
+    public void processEnded(ParsingContext context) {
+        System.out.println("Finished processing rows of data.");
+    }
+});
+CsvParser parser = new CsvParser(settings);
+List<String[]> allRows = parser.parseAll(new FileReader("/examples/example.csv"));
+```
+
+__For process rows with your own business logic__
+
+```java
+StringWriter strWriter = new StringWriter();
+CsvWriterSettings settings = new CsvWriterSettings();
+settings.setRowWriterProcessor(new BeanWriterProcessor<TestBean>(TestBean.class));
+CsvWriter writer = new CsvWriter(strWriter, settings);
+// Write the record headers
+writer.writeHeaders("Year", "Model", "Description", "Price");
+Collection<Object[]> rows = new ArrayList<Object[]>();
+rows.add(new String[]{"2015", "Inspiron 1420", "DELL laptop", "4000"});
+rows.add(new String[]{"2014", "iPhone 5s", "The best phone ever", "4000"});
+writer.commentRow("This is a comment");
+writer.writeRowsAndClose(rows);
+```
+
+* Extend `ColumnProcessor` to process columns with your own business logic
+
+>
 
 ### 7. Design and Implementations
 
