@@ -9,13 +9,13 @@ focus on maximum performance and flexibility while making it easy to extend for 
 
 ###Contents###
 
-[Overview](#1-overview)
-[Installation](#2-installation)
-[Features Overview](#3-features-overview)
-[Reading CSV/TSV/Fixed-width Files](#4-features-in-reading-tabular-presentations-data)
-[Writing CSV/TSV/Fixed-width Files](#5-features-in-writing-tabular-presentations-data)
-[Performance](#6-performance-and-flexibility)
-[Design and Implementations](#7-design-and-implementations)   
+* [Overview](#1-overview)
+* [Installation](#2-installation)
+* [Features Overview](#3-features-overview)
+* [Reading CSV/TSV/Fixed-width Files](#4-features-in-reading-tabular-presentations-data)
+* [Writing CSV/TSV/Fixed-width Files](#5-features-in-writing-tabular-presentations-data)
+* [Performance](#6-performance-and-flexibility)
+* [Design and Implementations](#7-design-and-implementations)
 
 ### 1. Overview
 
