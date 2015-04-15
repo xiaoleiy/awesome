@@ -57,18 +57,20 @@ tabular presentations data. Check the following overview chart for the features:
 
 ### 5. Features in Writing Tabular Presentations Data
 
-### 6. Performance
-Targeting at the purpose of maximum performance and flexibility, uniVocity-parsers utilized the following mechanisms
-to provide better performance and flexibility:
+### 6. Performance and Flexibility
+The uniVocity-parsers achieved its purpose of maximum performance and flexibility with the following mechanisms:
 
-* Multi-threads reading
+* Read input on separate thread (enable by invoking `CsvParserSettings.setReadInputOnSeparateThread()`)
 
 > When enabled, a reading thread (in `input.concurrent.ConcurrentCharInputReader`) will be started and load characters from the input,
 > while the parser is processing its input buffer. This yields better performance, especially when reading from big input (greater than 100 mb)
 > When disabled, the parsing process will briefly pause so the buffer can be replenished every time
 > it is exhausted (in `DefaultCharInputReader` it is not as bad or slow as it sounds, and can even be (slightly) more efficient if your input is small)
 
-* Caching during reading and writing
+* Caching during reading and writing (set buffer size by invoking `CsvParserSettings.setInputBufferSize()`)
+
+
+
 *
 
 ### 7. Design and Implementations
