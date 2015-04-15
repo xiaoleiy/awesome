@@ -1,11 +1,10 @@
-A powerful CSV/TSV/Fixed-width file parser library uniVocity-parsers in Java
+[uniVocity-parsers](http://www.univocity.com/pages/about-parsers): A powerful CSV/TSV/Fixed-width file parser library for Java
 ======
 
-The open-source project uniVocity-parsers is a CSV/TSV/Fixed-width file parser library in Java, providing
-the capability to read/write files with simplified API, and powerful features as shown below.
+[uniVocity-parsers](http://www.univocity.com/pages/about-parsers) is an open-source project CSV/TSV/Fixed-width file parser library in Java, providing many capabilities to read/write files with simplified API, and powerful features as shown below.
 
-Unlike other libraries out there, the uniVocity-parsers build it's own architecture for parsing text files, which
-focus on maximum performance and flexibility while making it easy to extend for new parsers.
+Unlike other libraries out there, uniVocity-parsers built its own architecture for parsing text files, which
+focuses on maximum performance and flexibility while making it easy to extend and build new parsers.
 
 ###Contents###
 
@@ -22,11 +21,11 @@ focus on maximum performance and flexibility while making it easy to extend for 
 ![The uniVocity-parsers library](img/uniVocity-logo.png "uniVocity-parsers library")
 
 The project uniVocity-parsers was started by [uniVocity Software](http://www.univocity.com/) during the
-development of uniVocity, a commercial data integration API for Java. It mainly focus on
-flexibility, performance, and reliability in tabular representation data parsing.
-[Commercial supports](support@univocity.com) is also provided for building new parsers.
+development of uniVocity, a commercial data integration API for Java. It focuses on
+flexibility, performance, and reliability for processing tabular representation of data.
+[Commercial support](http://www.univocity.com/products/parsers-support) is also provided for building new parsers.
 
-The project is hosted at [Github](https://github.com/uniVocity/univocity-parsers) with 60 starts & 7 forks.
+The project is hosted at [Github](https://github.com/uniVocity/univocity-parsers) with 60 stars & 7 forks.
 Tremendous document and tutorial are provided at [here](http://www.univocity.com/pages/parsers-tutorial)
 and [here](http://www.univocity.com/pages/parsers-features).
 You can find more examples and news [here](http://www.univocity.com/blogs/news) also.
@@ -37,7 +36,7 @@ Find more details [here](http://camel.apache.org/univocity-parsers-formats.html)
 ### 2. Installation
 Install the parser library in the following 2 ways as you prefer:
 * Directly download the jar [here](http://oss.sonatype.org/content/repositories/releases/com/univocity/univocity-parsers/1.5.1/univocity-parsers-1.5.1.jar).
-* Simply add the following to your `pom.xml` if you are using Maven:
+* Add the following to your `pom.xml` if you are using Maven:
 
 ```xml
 <dependency>
@@ -49,8 +48,7 @@ Install the parser library in the following 2 ways as you prefer:
 ```
 
 ### 3. Features Overview
-uniVocity-parsers provides a list of powerful features, which could fulfill the requirements well in processing
-tabular presentations data. Check the following overview chart for the features:
+uniVocity-parsers provides a list of powerful features, which can fulfill virtually all requirements you might have for processing tabular presentations of data. Check the following overview chart for the features:
 
 ![Features of uniVocity-parsers](img/univocity-features.png "features of uniVocity-parsers")
 
@@ -60,10 +58,10 @@ tabular presentations data. Check the following overview chart for the features:
 
 ### 6. Performance and Flexibility
 
-Here are some [Comparison tables in performance for all CSV parsers libraries in existence](https://github.com/uniVocity/csv-parsers-comparison#csv-parsers)
-And you can find that the uniVocity-parsers got significant ahead of other libraries in performance.
+Here are some [performance comparison tables  for almost all CSV parsers libraries in existence](https://github.com/uniVocity/csv-parsers-comparison#csv-parsers)
+And you can find that uniVocity-parsers got significantly ahead of other libraries in performance.
 
-The uniVocity-parsers achieved its purpose in performance and flexibility with the following mechanisms:
+uniVocity-parsers achieved its purpose in performance and flexibility with the following mechanisms:
 
 * __Read input on separate thread (enable by invoking `CsvParserSettings.setReadInputOnSeparateThread()`)__
 
@@ -97,7 +95,7 @@ CsvParserSettings settings = new CsvParserSettings();
 settings.setRowProcessor(new RowProcessor() {
 
     /**
-    * preprocess the row with your own business logic
+    * initialize whatever you need before processing the first row, with your own business logic
     **/
     @Override
     public void processStarted(ParsingContext context) {
@@ -118,7 +116,7 @@ settings.setRowProcessor(new RowProcessor() {
     }
 
     /**
-    * post-process the row with your own business logic
+    * After all rows were processed, perform any cleanup you need
     **/
     @Override
     public void processEnded(ParsingContext context) {
@@ -137,8 +135,6 @@ List<String[]> allRows = parser.parseAll(new FileReader("/examples/example.csv")
 StringWriter strWriter = new StringWriter();
 CsvWriterSettings settings = new CsvWriterSettings();
 
-// set the instance of `TestBean` as the bean for rows
-settings.setRowWriterProcessor(new BeanWriterProcessor<TestBean>(TestBean.class));
 CsvWriter writer = new CsvWriter(strWriter, settings);
 
 // write the row headers
@@ -158,15 +154,9 @@ writer.writeRowsAndClose(rows);
 
 ### 7. Design and Implementations
 * The bunch of processors in uniVocity-parsers are core modules, which are responsible for reading/writing data in
-rows and columns, and data conversions.
+rows and columns, and execute data conversions.
 Here is the diagram of processors:
 
 ![Reading and Writing processors](img/diagram-processors.png "Reading and Writing processors")
 
-According to the above diagram, you can creates your own processors easily by implementing according interfaces.
-
-* The different type of input readers in uniVocity-parsers provide concurrent reading, characters caching and flexibility
-for different format of data.
-Here is the diagram of input readers:
-
-![input readers in uniVocity-parsers](img/diagram-input-readers.png "input readers in uniVocity-parsers")
+You can create your own processors easily by implementing the RowProcessor interface or extending the provided implementations.
