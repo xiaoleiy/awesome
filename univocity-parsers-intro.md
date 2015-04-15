@@ -34,9 +34,9 @@ __The well-known open-source project Apache Camel integrates uniVocity-parsers f
 Find more details [here](http://camel.apache.org/univocity-parsers-formats.html).__
 
 ### 2. Installation
-
-1. Directly download the jar [here](http://oss.sonatype.org/content/repositories/releases/com/univocity/univocity-parsers/1.5.1/univocity-parsers-1.5.1.jar).
-2. Simply add the following to your `pom.xml` if you are using Maven:
+Install the parser library in the following 2 ways as you prefer:
+* Directly download the jar [here](http://oss.sonatype.org/content/repositories/releases/com/univocity/univocity-parsers/1.5.1/univocity-parsers-1.5.1.jar).
+* Simply add the following to your `pom.xml` if you are using Maven:
 
 ```xml
 <dependency>
@@ -47,17 +47,30 @@ Find more details [here](http://camel.apache.org/univocity-parsers-formats.html)
 </dependency>
 ```
 
-### 3. Features of uniVocity-parsers
-#### 3.1 Overview
+### 3. Features Overview
+uniVocity-parsers provides a list of powerful features, which could fulfill the requirements well in processing
+tabular presentations data. Check the following overview chart for the features:
+
 ![Features of uniVocity-parsers](img/univocity-features.png "features of uniVocity-parsers")
 
-#### 3.2 Reading
+### 4. Features in Reading Tabular Presentations Data
 
-#### 3.3 Writing
+### 5. Features in Writing Tabular Presentations Data
 
-### 4. Performance
+### 6. Performance
+Targeting at the purpose of maximum performance and flexibility, uniVocity-parsers utilized the following mechanisms
+to provide better performance and flexibility:
 
+* Multi-threads reading
 
-### 5. Design and Implementations
+> When enabled, a reading thread (in `input.concurrent.ConcurrentCharInputReader`) will be started and load characters from the input,
+> while the parser is processing its input buffer. This yields better performance, especially when reading from big input (greater than 100 mb)
+> When disabled, the parsing process will briefly pause so the buffer can be replenished every time
+> it is exhausted (in `DefaultCharInputReader` it is not as bad or slow as it sounds, and can even be (slightly) more efficient if your input is small)
+
+* Caching during reading and writing
+*
+
+### 7. Design and Implementations
 
 ![Reading and Writing processors](img/diagram-processors.png "Reading and Writing processors")
