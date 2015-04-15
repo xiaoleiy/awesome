@@ -84,16 +84,24 @@ The uniVocity-parsers achieved its purpose of maximum performance and flexibilit
 > The row processing task is submitted to the thread pool implemented with `java.util.concurrent` package.
 > The thread pool is initialized with `new Executors.FinalizableDelegatedExecutorService(new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue()));`
 
-* Extend `RowProcessor` to process rows with your own business logic
-__For process rows with your own business logic__
+* Extend `RowProcessor` to read rows with your own business logic
 
 ```java
 CsvParserSettings settings = new CsvParserSettings();
+
 settings.setRowProcessor(new RowProcessor() {
+
+    /**
+    * preprocess the row with your own business logic
+    **/
     @Override
     public void processStarted(ParsingContext context) {
         System.out.println("Started to process rows of data.");
     }
+
+    /**
+    * process the row with your own business logic
+    **/
     @Override
     public void rowProcessed(String[] row, ParsingContext context) {
         System.out.println("The row in line #" + context.currentLine() + ": ");
@@ -103,27 +111,40 @@ settings.setRowProcessor(new RowProcessor() {
         }
         System.out.println(stringBuffer);
     }
+
+    /**
+    * post-process the row with your own business logic
+    **/
     @Override
     public void processEnded(ParsingContext context) {
         System.out.println("Finished processing rows of data.");
     }
 });
+
 CsvParser parser = new CsvParser(settings);
 List<String[]> allRows = parser.parseAll(new FileReader("/examples/example.csv"));
 ```
 
-__For process rows with your own business logic__
+* Extend `RowProcessor` to write rows with your own business logic
 
 ```java
+// setup the settings for witting rows
 StringWriter strWriter = new StringWriter();
 CsvWriterSettings settings = new CsvWriterSettings();
+
+// set the instance of `TestBean` as the bean for rows
 settings.setRowWriterProcessor(new BeanWriterProcessor<TestBean>(TestBean.class));
 CsvWriter writer = new CsvWriter(strWriter, settings);
-// Write the record headers
+
+// write the row headers
 writer.writeHeaders("Year", "Model", "Description", "Price");
+
+// write the column values in current row
 Collection<Object[]> rows = new ArrayList<Object[]>();
 rows.add(new String[]{"2015", "Inspiron 1420", "DELL laptop", "4000"});
 rows.add(new String[]{"2014", "iPhone 5s", "The best phone ever", "4000"});
+
+// write rows of data and close the I/O to finish
 writer.commentRow("This is a comment");
 writer.writeRowsAndClose(rows);
 ```
