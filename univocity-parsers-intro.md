@@ -59,9 +59,13 @@ tabular presentations data. Check the following overview chart for the features:
 ### 5. Features in Writing Tabular Presentations Data
 
 ### 6. Performance and Flexibility
-The uniVocity-parsers achieved its purpose of maximum performance and flexibility with the following mechanisms:
 
-* Read input on separate thread (enable by invoking `CsvParserSettings.setReadInputOnSeparateThread()`)
+Here are some [Comparison tables in performance for all CSV parsers libraries in existence](https://github.com/uniVocity/csv-parsers-comparison#csv-parsers)
+And you can find that the uniVocity-parsers got significant ahead of other libraries in performance.
+
+The uniVocity-parsers achieved its purpose in performance and flexibility with the following mechanisms:
+
+* __Read input on separate thread (enable by invoking `CsvParserSettings.setReadInputOnSeparateThread()`)__
 
 > When enabled, a reading thread (in `input.concurrent.ConcurrentCharInputReader`) will be started and load characters from the input,
 > while the parser is processing its input buffer. This yields better performance, especially when reading from big input (greater than 100 mb)
@@ -69,7 +73,7 @@ The uniVocity-parsers achieved its purpose of maximum performance and flexibilit
 > When disabled, the parsing process will briefly pause so the buffer can be replenished every time
 > it is exhausted (in `DefaultCharInputReader` it is not as bad or slow as it sounds, and can even be (slightly) more efficient if your input is small)
 
-* Caching during reading and writing (set buffer size by invoking `CsvParserSettings.setInputBufferSize()`)
+* __Caching during reading and writing (set buffer size by invoking `CsvParserSettings.setInputBufferSize()`)__
 
 > For concurrency reading with `input.concurrent.ConcurrentCharInputReader`, the size of "bucket" and quantity of "buckets"
 > are specified to for the cache pool. The `ConcurrentCharInputReader` will load "buckets" of characters in a separate thread
@@ -77,7 +81,7 @@ The uniVocity-parsers achieved its purpose of maximum performance and flexibilit
 >
 > For sequential reading, input reader `DefaultCharInputReader` owns buffer with array of characters with initial size 1024 * 1024 bytes.
 
-* Concurrent row processor
+* __Concurrent row processor__
 
 > As an entry to process rows of data, the `ConcurrentRowProcessor` implements `RowProcessor` to perform row processing tasks in parallel.
 > It wraps another `RowProcessor` and collects rows read from the input. The actual row processing is performed in by wrapped RowProcessor in a separate thread.
@@ -85,7 +89,7 @@ The uniVocity-parsers achieved its purpose of maximum performance and flexibilit
 > The row processing task is submitted to the thread pool implemented with `java.util.concurrent` package.
 > The thread pool is initialized with `new Executors.FinalizableDelegatedExecutorService(new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue()));`
 
-* Extend `RowProcessor` to read rows with your own business logic
+* __Extend `RowProcessor` to read rows with your own business logic)__
 
 ```java
 CsvParserSettings settings = new CsvParserSettings();
@@ -126,7 +130,7 @@ CsvParser parser = new CsvParser(settings);
 List<String[]> allRows = parser.parseAll(new FileReader("/examples/example.csv"));
 ```
 
-* Extend `RowProcessor` to write rows with your own business logic
+* __Extend `RowProcessor` to write rows with your own business logic__
 
 ```java
 // setup the settings for witting rows
@@ -150,13 +154,19 @@ writer.commentRow("This is a comment");
 writer.writeRowsAndClose(rows);
 ```
 
-* Extend `ColumnProcessor` to process columns with your own business logic
+* __Extend `ColumnProcessor` to process columns with your own business logic__
 
 ### 7. Design and Implementations
 * The bunch of processors in uniVocity-parsers are core modules, which are responsible for reading/writing data in
-rows and columns, data conversions. Here is the diagram of processors:
+rows and columns, and data conversions.
+Here is the diagram of processors:
+
 ![Reading and Writing processors](img/diagram-processors.png "Reading and Writing processors")
 
+According to the above diagram, you can creates your own processors easily by implementing according interfaces.
+
 * The different type of input readers in uniVocity-parsers provide concurrent reading, characters caching and flexibility
-for different format of data. Here is the diagram of input readers:
+for different format of data.
+Here is the diagram of input readers:
+
 ![input readers in uniVocity-parsers](img/diagram-input-readers.png "input readers in uniVocity-parsers")
