@@ -85,7 +85,6 @@ The uniVocity-parsers achieved its purpose of maximum performance and flexibilit
 > The thread pool is initialized with `new Executors.FinalizableDelegatedExecutorService(new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue()));`
 
 * Extend `RowProcessor` to process rows with your own business logic
-
 __For process rows with your own business logic__
 
 ```java
@@ -130,8 +129,6 @@ writer.writeRowsAndClose(rows);
 ```
 
 * Extend `ColumnProcessor` to process columns with your own business logic
-
->
 
 ### 7. Design and Implementations
 
