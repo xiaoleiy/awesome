@@ -9,12 +9,13 @@ focus on maximum performance and flexibility while making it easy to extend for 
 
 ###Contents###
 
-1. Overview
-2. Installation
-3. Reading CSV/TSV/Fixed-width Files
-4. Writing CSV/TSV/Fixed-width Files
-5. Performance
-6. Design and Implementations
+1. [Overview](#1-overview)
+2. [Installation](#2-installation)
+3. [Features Overview](#3-features-overview)
+4. [Reading CSV/TSV/Fixed-width Files](#4-features-in-reading-tabular-presentations-data)
+5. [Writing CSV/TSV/Fixed-width Files](#5-features-in-writing-tabular-presentations-data)
+6. [Performance](#6-performance-and-flexibility)
+7. [Design and Implementations](#7-design-and-implementations)
 
 ### 1. Overview
 
@@ -152,5 +153,10 @@ writer.writeRowsAndClose(rows);
 * Extend `ColumnProcessor` to process columns with your own business logic
 
 ### 7. Design and Implementations
-
+* The bunch of processors in uniVocity-parsers are core modules, which are responsible for reading/writing data in
+rows and columns, data conversions. Here is the diagram of processors:
 ![Reading and Writing processors](img/diagram-processors.png "Reading and Writing processors")
+
+* The different type of input readers in uniVocity-parsers provide concurrent reading, characters caching and flexibility
+for different format of data. Here is the diagram of input readers:
+![input readers in uniVocity-parsers](img/diagram-input-readers.png "input readers in uniVocity-parsers")
