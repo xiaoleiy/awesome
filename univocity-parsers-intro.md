@@ -71,12 +71,13 @@ Check the following overview chart for the features:
 ### 6. Performance and Flexibility
 
 Here is the performance comparison we tested between uniVocity-parsers and JavaCSV in our system:
-|file size          |Duration for JavaCSV parsing |Duration for uniVocity-parsers parsing|
+
+| file size         | Duration for JavaCSV parsing | Duration for uniVocity-parsers parsing |
 |-----|-----:|-----:|
 |10MB, 145453 rows  |1138ms |836ms|
 |100MB, 809008 rows |23s    |6s|
 |434MB, 4499959 rows|91s    |28s|
-|1GB, 23803502 rows |245s    |70s|
+|1GB, 23803502 rows |245s   |70s|
 
 Here are some [performance comparison tables  for almost all CSV parsers libraries in existence](https://github.com/uniVocity/csv-parsers-comparison#csv-parsers)
 And you can find that uniVocity-parsers got significantly ahead of other libraries in performance.
