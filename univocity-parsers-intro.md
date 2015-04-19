@@ -21,24 +21,28 @@ focuses on maximum performance and flexibility while making it easy to extend an
 I'm a Java developer working on a web-based system to evaluate telecommunication carriers' network and work out reports.
 In the system, the CSV format was heavily involved for the network-related data,
 such as real-time network status (online/offline) for the broadband subscribers, and real-time traffic for each subscriber.
-Generally the size of a single CSV file would exceed 1GB, with millions of rows included.
+Generally the size of a single CSV file would exceed 1GB, with millions of rows included. And we were using the library
+[JavaCSV](http://sourceforge.net/projects/javacsv/) as the CSV file parser.
 
-I came across this library when searching for a better way to solve <your problem here> and it's been great
+As growth in the capacity of carrier' network and the time duration our system monitors, the size of data in CSV increased so much.
+My team and I have to work out a solution to achieve better performance (even in seconds) in CSV files processing,
+and better extendability to provide much more customized functionality.
+
+We came across this library [uniVocity-parsers](http://www.univocity.com/pages/about-parsers) as a final solution
+after a lot of testing and analysis, and we found it great. Except for better performance and extendability, the library
+provides developers with simplified APIs, detailed documents & tutorials and commercial support for highly customized functionality.
 
 ![The uniVocity-parsers library](img/uniVocity-logo.png "uniVocity-parsers library")
 
 The project uniVocity-parsers was started by [uniVocity Software](http://www.univocity.com/) during the
-development of uniVocity, a commercial data integration API for Java. It focuses on
-flexibility, performance, and reliability for processing tabular representation of data.
-[Commercial support](http://www.univocity.com/products/parsers-support) is also provided for building new parsers.
-
-The project is hosted at [Github](https://github.com/uniVocity/univocity-parsers) with 60 stars & 7 forks.
-Tremendous document and tutorial are provided at [here](http://www.univocity.com/pages/parsers-tutorial)
+development of uniVocity, a commercial data integration API for Java.
+It is hosted at [Github](https://github.com/uniVocity/univocity-parsers) with 60 stars & 7 forks.
+Tremendous documents & tutorials are provided at [here](http://www.univocity.com/pages/parsers-tutorial)
 and [here](http://www.univocity.com/pages/parsers-features).
 You can find more examples and news [here](http://www.univocity.com/blogs/news) also.
 
-__The well-known open-source project Apache Camel integrates uniVocity-parsers for reading and writing CSV/TSV/Fixed-width files.
-Find more details [here](http://camel.apache.org/univocity-parsers-formats.html).__
+Also the well-known open-source project Apache Camel integrates uniVocity-parsers for reading and writing CSV/TSV/Fixed-width files.
+Find more details [here](http://camel.apache.org/univocity-parsers-formats.html).
 
 ### 2. Installation
 Install the parser library in the following 2 ways as you prefer:
