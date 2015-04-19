@@ -66,10 +66,11 @@ Check the following overview chart for the features:
 
 ### 4. Reading Tabular Presentations Data
 
-__To read all rows of a csv__
+__Read all rows of a csv__
 
 ```java
 CsvParserSettings settings = new CsvParserSettings();
+
 //the file used in the example uses '\n' as the line separator sequence.
 //the line separator sequence is defined here to ensure systems such as MacOS and Windows
 //are able to process this file correctly (MacOS uses '\r'; and Windows uses '\r\n').
@@ -99,7 +100,7 @@ air, moon roof, loaded, 4799.00]
 6 [null, null, Venture "Extended Edition", null, 4900.00]
 ```
 
-For more samples, refer to: [https://github.com/uniVocity/univocity-parsers#reading-csv](https://github.com/uniVocity/univocity-parsers#reading-csv)
+For full list of demos in reading features, refer to: [https://github.com/uniVocity/univocity-parsers#reading-csv](https://github.com/uniVocity/univocity-parsers#reading-csv)
 
 ### 5. Writing Tabular Presentations Data
 
@@ -131,7 +132,7 @@ air, moon roof, loaded",4799.00
 ,,Venture "Extended Edition",,4900.00
 ```
 
-For more samples, refer to: [https://github.com/uniVocity/univocity-parsers/blob/master/README.md#writing](https://github.com/uniVocity/univocity-parsers/blob/master/README.md#writing)
+For full list of demos in writing features, refer to: [https://github.com/uniVocity/univocity-parsers/blob/master/README.md#writing](https://github.com/uniVocity/univocity-parsers/blob/master/README.md#writing)
 
 ### 6. Performance and Flexibility
 
