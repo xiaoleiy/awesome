@@ -64,13 +64,78 @@ Check the following overview chart for the features:
 
 ![Features of uniVocity-parsers](img/univocity-features.png "features of uniVocity-parsers")
 
-### 4. Features in Reading Tabular Presentations Data
+### 4. Reading Tabular Presentations Data
 
-### 5. Features in Writing Tabular Presentations Data
+__To read all rows of a csv__
+
+```java
+CsvParserSettings settings = new CsvParserSettings();
+//the file used in the example uses '\n' as the line separator sequence.
+//the line separator sequence is defined here to ensure systems such as MacOS and Windows
+//are able to process this file correctly (MacOS uses '\r'; and Windows uses '\r\n').
+settings.getFormat().setLineSeparator("\n");
+
+// creates a CSV parser
+CsvParser parser = new CsvParser(settings);
+
+// parses all rows in one go.
+List<String[]> allRows = parser.parseAll(getReader("/examples/example.csv"));
+```
+
+The output will be:
+
+```
+1 [Year, Make, Model, Description, Price]
+-----------------------
+2 [1997, Ford, E350, ac, abs, moon, 3000.00]
+-----------------------
+3 [1999, Chevy, Venture "Extended Edition", null, 4900.00]
+-----------------------
+4 [1996, Jeep, Grand Cherokee, MUST SELL!
+air, moon roof, loaded, 4799.00]
+-----------------------
+5 [1999, Chevy, Venture "Extended Edition, Very Large", null, 5000.00]
+-----------------------
+6 [null, null, Venture "Extended Edition", null, 4900.00]
+```
+
+For more samples, refer to: [https://github.com/uniVocity/univocity-parsers#reading-csv](https://github.com/uniVocity/univocity-parsers#reading-csv)
+
+### 5. Writing Tabular Presentations Data
+
+__Write data in CSV format with just 3 lines of code:__
+
+```java
+// All you need is to create an instance of CsvWriter with the default CsvWriterSettings.
+// By default, only values that contain a field separator are enclosed within quotes.
+// If quotes are part of the value, they are escaped automatically as well.
+// Empty rows are discarded automatically.
+CsvWriter writer = new CsvWriter(outputWriter, new CsvWriterSettings());
+
+// Write the record headers of this file
+writer.writeHeaders("Year", "Make", "Model", "Description", "Price");
+
+// Here we just tell the writer to write everything and close the given output Writer instance.
+writer.writeRowsAndClose(rows);
+```
+
+The output will be:
+
+```
+Year,Make,Model,Description,Price
+    1997,Ford,E350,"ac, abs, moon",3000.00
+    1999,Chevy,Venture "Extended Edition",,4900.00
+    1996,Jeep,Grand Cherokee,"MUST SELL!
+    air, moon roof, loaded",4799.00
+    1999,Chevy,"Venture ""Extended Edition, Very Large""",,5000.00
+    ,,Venture "Extended Edition",,4900.00
+```
+
+For more samples, refer to: [https://github.com/uniVocity/univocity-parsers/blob/master/README.md#writing](https://github.com/uniVocity/univocity-parsers/blob/master/README.md#writing)
 
 ### 6. Performance and Flexibility
 
-Here is the performance comparison we tested between uniVocity-parsers and JavaCSV in our system:
+Here is the performance comparison we tested for uniVocity-parsers and JavaCSV in our system:
 
 | file size         | Duration for JavaCSV parsing | Duration for uniVocity-parsers parsing |
 |-----|-----:|-----:|
@@ -79,36 +144,16 @@ Here is the performance comparison we tested between uniVocity-parsers and JavaC
 |434MB, 4499959 rows|91s    |28s|
 |1GB, 23803502 rows |245s   |70s|
 
-Here are some [performance comparison tables  for almost all CSV parsers libraries in existence](https://github.com/uniVocity/csv-parsers-comparison#csv-parsers)
+Here are some [performance comparison tables for almost all CSV parsers libraries in existence](https://github.com/uniVocity/csv-parsers-comparison#csv-parsers).
 And you can find that uniVocity-parsers got significantly ahead of other libraries in performance.
 
 uniVocity-parsers achieved its purpose in performance and flexibility with the following mechanisms:
 
 * __Read input on separate thread (enable by invoking `CsvParserSettings.setReadInputOnSeparateThread()`)__
-
-> When enabled, a reading thread (in `input.concurrent.ConcurrentCharInputReader`) will be started and load characters from the input,
-> while the parser is processing its input buffer. This yields better performance, especially when reading from big input (greater than 100 mb)
->
-> When disabled, the parsing process will briefly pause so the buffer can be replenished every time
-> it is exhausted (in `DefaultCharInputReader` it is not as bad or slow as it sounds, and can even be (slightly) more efficient if your input is small)
-
 * __Caching during reading and writing (set buffer size by invoking `CsvParserSettings.setInputBufferSize()`)__
-
-> For concurrency reading with `input.concurrent.ConcurrentCharInputReader`, the size of "bucket" and quantity of "buckets"
-> are specified to for the cache pool. The `ConcurrentCharInputReader` will load "buckets" of characters in a separate thread
-> and provides them sequentially to the buffer defined by instance of  `CharBucket`.
->
-> For sequential reading, input reader `DefaultCharInputReader` owns buffer with array of characters with initial size 1024 * 1024 bytes.
-
-* __Concurrent row processor__
-
-> As an entry to process rows of data, the `ConcurrentRowProcessor` implements `RowProcessor` to perform row processing tasks in parallel.
-> It wraps another `RowProcessor` and collects rows read from the input. The actual row processing is performed in by wrapped RowProcessor in a separate thread.
->
-> The row processing task is submitted to the thread pool implemented with `java.util.concurrent` package.
-> The thread pool is initialized with `new Executors.FinalizableDelegatedExecutorService(new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue()));`
-
-* __Extend `RowProcessor` to read rows with your own business logic)__
+* __Concurrent row processor with package java.util.concurrent (refer to `ConcurrentRowProcessor` which implements `RowProcessor`)__
+* __Extend `ColumnProcessor` to process columns with your own business logic__
+* __Extend `RowProcessor` to read rows with your own business logic__
 
 ```java
 CsvParserSettings settings = new CsvParserSettings();
@@ -171,10 +216,8 @@ writer.commentRow("This is a comment");
 writer.writeRowsAndClose(rows);
 ```
 
-* __Extend `ColumnProcessor` to process columns with your own business logic__
-
 ### 7. Design and Implementations
-* The bunch of processors in uniVocity-parsers are core modules, which are responsible for reading/writing data in
+A bunch of processors in uniVocity-parsers are core modules, which are responsible for reading/writing data in
 rows and columns, and execute data conversions.
 Here is the diagram of processors:
 
