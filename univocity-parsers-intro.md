@@ -18,6 +18,13 @@ focuses on maximum performance and flexibility while making it easy to extend an
 
 ### 1. Overview
 
+I'm a Java developer working on a web-based system to evaluate telecommunication carriers' network and work out reports.
+In the system, the CSV format was heavily involved for the network-related data,
+such as real-time network status (online/offline) for the broadband subscribers, and real-time traffic for each subscriber.
+Generally the size of a single CSV file would exceed 1GB, with millions of rows included.
+
+I came across this library when searching for a better way to solve <your problem here> and it's been great
+
 ![The uniVocity-parsers library](img/uniVocity-logo.png "uniVocity-parsers library")
 
 The project uniVocity-parsers was started by [uniVocity Software](http://www.univocity.com/) during the
