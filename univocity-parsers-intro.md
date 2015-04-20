@@ -41,16 +41,15 @@ In addition, the well-known open-source project Apache Camel integrates uniVocit
 Find more details [here](http://camel.apache.org/univocity-parsers-formats.html).
 
 ### 2. Installation
-Install the parser library in the following 2 ways as you prefer:
-* Directly download the jar [here](http://oss.sonatype.org/content/repositories/releases/com/univocity/univocity-parsers/1.5.1/univocity-parsers-1.5.1.jar).
-* Add the following to your `pom.xml` if you are using Maven:
+I'm using [version 1.5.1](http://oss.sonatype.org/content/repositories/releases/com/univocity/univocity-parsers/1.5.1/univocity-parsers-1.5.1.jar), but refer to the [official download page](http://www.univocity.com/pages/parsers-download) to see if there's a more recent version available.
+
+The project is also available in the maven central repository, so you can add this to your `pom.xml`:
 
 ```xml
 <dependency>
     <groupId>com.univocity</groupId>
     <artifactId>univocity-parsers</artifactId>
     <version>1.5.1</version>
-    <type>jar</type>
 </dependency>
 ```
 
@@ -65,7 +64,6 @@ Check the following overview chart for the features:
 __Read all rows of a csv__
 
 ```java
-// creates a CSV parser
 CsvParser parser = new CsvParser(new CsvParserSettings());
 List<String[]> allRows = parser.parseAll(getReader("/examples/example.csv"));
 ```
@@ -74,12 +72,12 @@ For full list of demos in reading features, refer to: [https://github.com/uniVoc
 
 ### 5. Writing Tabular Presentations Data
 
-__Write data in CSV format with just 3 lines of code:__
+__Write data in CSV format with just 2 lines of code:__
 
 ```java
-CsvWriter writer = new CsvWriter(outputWriter, new CsvWriterSettings());
-writer.writeHeaders("Year", "Make", "Model", "Description", "Price");
 List<String[]> rows = someMethodToCreateRows();
+
+CsvWriter writer = new CsvWriter(outputWriter, new CsvWriterSettings());
 writer.writeRowsAndClose(rows);
 ```
 
@@ -102,8 +100,7 @@ And you can find that uniVocity-parsers got significantly ahead of other librari
 uniVocity-parsers achieved its purpose in performance and flexibility with the following mechanisms:
 
 * __Read input on separate thread (enable by invoking `CsvParserSettings.setReadInputOnSeparateThread()`)__
-* __Caching during reading and writing (set buffer size by invoking `CsvParserSettings.setInputBufferSize()`)__
-* __Concurrent row processor with package java.util.concurrent (refer to `ConcurrentRowProcessor` which implements `RowProcessor`)__
+* __Concurrent row processor (refer to `ConcurrentRowProcessor` which implements `RowProcessor`)__
 * __Extend `ColumnProcessor` to process columns with your own business logic__
 * __Extend `RowProcessor` to read rows with your own business logic__
 
@@ -156,4 +153,4 @@ CsvParser parser = new CsvParser(settings);
 List<String[]> allRows = parser.parseAll(new FileReader("/myFile.csv"));
 ```
 
-The library offers a whole lot more of features. I recommend you to have a look. It really made a difference in our project.
+The library offers a whole lot more features. I recommend you to have a lookas it really made a difference in our project.
