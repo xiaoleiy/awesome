@@ -29,19 +29,15 @@ My team and I have to work out a solution to achieve better performance (even in
 and better extendability to provide much more customized functionality.
 
 We came across this library [uniVocity-parsers](http://www.univocity.com/pages/about-parsers) as a final solution
-after a lot of testing and analysis, and we found it great. Except for better performance and extendability, the library
+after a lot of testing and analysis, and we found it great. In addition of better performance and extendability, the library
 provides developers with simplified APIs, detailed documents & tutorials and commercial support for highly customized functionality.
 
-![The uniVocity-parsers library](img/uniVocity-logo.png "uniVocity-parsers library")
-
-The project uniVocity-parsers was started by [uniVocity Software](http://www.univocity.com/) during the
-development of uniVocity, a commercial data integration API for Java.
-It is hosted at [Github](https://github.com/uniVocity/univocity-parsers) with 60 stars & 7 forks.
+This project is hosted at [Github](https://github.com/uniVocity/univocity-parsers) with 62 stars & 8 forks (at the time of writing).
 Tremendous documents & tutorials are provided at [here](http://www.univocity.com/pages/parsers-tutorial)
 and [here](http://www.univocity.com/pages/parsers-features).
-You can find more examples and news [here](http://www.univocity.com/blogs/news) also.
+You can find more examples and news [here](http://www.univocity.com/blogs/news) as well.
 
-Also the well-known open-source project Apache Camel integrates uniVocity-parsers for reading and writing CSV/TSV/Fixed-width files.
+In addition, the well-known open-source project Apache Camel integrates uniVocity-parsers for reading and writing CSV/TSV/Fixed-width files.
 Find more details [here](http://camel.apache.org/univocity-parsers-formats.html).
 
 ### 2. Installation
@@ -69,35 +65,9 @@ Check the following overview chart for the features:
 __Read all rows of a csv__
 
 ```java
-CsvParserSettings settings = new CsvParserSettings();
-
-//the file used in the example uses '\n' as the line separator sequence.
-//the line separator sequence is defined here to ensure systems such as MacOS and Windows
-//are able to process this file correctly (MacOS uses '\r'; and Windows uses '\r\n').
-settings.getFormat().setLineSeparator("\n");
-
 // creates a CSV parser
-CsvParser parser = new CsvParser(settings);
-
-// parses all rows in one go.
+CsvParser parser = new CsvParser(new CsvParserSettings());
 List<String[]> allRows = parser.parseAll(getReader("/examples/example.csv"));
-```
-
-The output will be:
-
-```
-1 [Year, Make, Model, Description, Price]
------------------------
-2 [1997, Ford, E350, ac, abs, moon, 3000.00]
------------------------
-3 [1999, Chevy, Venture "Extended Edition", null, 4900.00]
------------------------
-4 [1996, Jeep, Grand Cherokee, MUST SELL!
-air, moon roof, loaded, 4799.00]
------------------------
-5 [1999, Chevy, Venture "Extended Edition, Very Large", null, 5000.00]
------------------------
-6 [null, null, Venture "Extended Edition", null, 4900.00]
 ```
 
 For full list of demos in reading features, refer to: [https://github.com/uniVocity/univocity-parsers#reading-csv](https://github.com/uniVocity/univocity-parsers#reading-csv)
@@ -107,29 +77,10 @@ For full list of demos in reading features, refer to: [https://github.com/uniVoc
 __Write data in CSV format with just 3 lines of code:__
 
 ```java
-// All you need is to create an instance of CsvWriter with the default CsvWriterSettings.
-// By default, only values that contain a field separator are enclosed within quotes.
-// If quotes are part of the value, they are escaped automatically as well.
-// Empty rows are discarded automatically.
 CsvWriter writer = new CsvWriter(outputWriter, new CsvWriterSettings());
-
-// Write the record headers of this file
 writer.writeHeaders("Year", "Make", "Model", "Description", "Price");
-
-// Here we just tell the writer to write everything and close the given output Writer instance.
+List<String[]> rows = someMethodToCreateRows();
 writer.writeRowsAndClose(rows);
-```
-
-The output will be:
-
-```
-Year,Make,Model,Description,Price
-1997,Ford,E350,"ac, abs, moon",3000.00
-1999,Chevy,Venture "Extended Edition",,4900.00
-1996,Jeep,Grand Cherokee,"MUST SELL!
-air, moon roof, loaded",4799.00
-1999,Chevy,"Venture ""Extended Edition, Very Large""",,5000.00
-,,Venture "Extended Edition",,4900.00
 ```
 
 For full list of demos in writing features, refer to: [https://github.com/uniVocity/univocity-parsers/blob/master/README.md#writing](https://github.com/uniVocity/univocity-parsers/blob/master/README.md#writing)
@@ -156,6 +107,15 @@ uniVocity-parsers achieved its purpose in performance and flexibility with the f
 * __Extend `ColumnProcessor` to process columns with your own business logic__
 * __Extend `RowProcessor` to read rows with your own business logic__
 
+### 7. Design and Implementations
+A bunch of processors in uniVocity-parsers are core modules, which are responsible for reading/writing data in
+rows and columns, and execute data conversions.
+Here is the diagram of processors:
+
+![Reading and Writing processors](img/diagram-processors.png "Reading and Writing processors")
+
+You can create your own processors easily by implementing the RowProcessor interface or extending the provided implementations. In the following example I simply used an anonymous class:
+
 ```java
 CsvParserSettings settings = new CsvParserSettings();
 
@@ -172,14 +132,14 @@ settings.setRowProcessor(new RowProcessor() {
     /**
     * process the row with your own business logic
     **/
+    StringBuilder stringBuilder = new StringBuilder();
+    
     @Override
     public void rowProcessed(String[] row, ParsingContext context) {
         System.out.println("The row in line #" + context.currentLine() + ": ");
-        StringBuffer stringBuffer = new StringBuffer();
         for (String col : row) {
-            stringBuffer.append(col).append("\t");
+            stringBuilder.append(col).append("\t");
         }
-        System.out.println(stringBuffer);
     }
 
     /**
@@ -188,40 +148,12 @@ settings.setRowProcessor(new RowProcessor() {
     @Override
     public void processEnded(ParsingContext context) {
         System.out.println("Finished processing rows of data.");
+        System.out.println(stringBuilder);
     }
 });
 
 CsvParser parser = new CsvParser(settings);
-List<String[]> allRows = parser.parseAll(new FileReader("/examples/example.csv"));
+List<String[]> allRows = parser.parseAll(new FileReader("/myFile.csv"));
 ```
 
-* __Extend `RowProcessor` to write rows with your own business logic__
-
-```java
-// setup the settings for witting rows
-StringWriter strWriter = new StringWriter();
-CsvWriterSettings settings = new CsvWriterSettings();
-
-CsvWriter writer = new CsvWriter(strWriter, settings);
-
-// write the row headers
-writer.writeHeaders("Year", "Model", "Description", "Price");
-
-// write the column values in current row
-Collection<Object[]> rows = new ArrayList<Object[]>();
-rows.add(new String[]{"2015", "Inspiron 1420", "DELL laptop", "4000"});
-rows.add(new String[]{"2014", "iPhone 5s", "The best phone ever", "4000"});
-
-// write rows of data and close the I/O to finish
-writer.commentRow("This is a comment");
-writer.writeRowsAndClose(rows);
-```
-
-### 7. Design and Implementations
-A bunch of processors in uniVocity-parsers are core modules, which are responsible for reading/writing data in
-rows and columns, and execute data conversions.
-Here is the diagram of processors:
-
-![Reading and Writing processors](img/diagram-processors.png "Reading and Writing processors")
-
-You can create your own processors easily by implementing the RowProcessor interface or extending the provided implementations.
+The library offers a whole lot more of features. I recommend you to have a look. It really made a difference in our project.
