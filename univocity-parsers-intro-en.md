@@ -13,7 +13,7 @@ focuses on maximum performance and flexibility while making it easy to extend an
 * [Features Overview](#3-features-overview)
 * [Reading CSV/TSV/Fixed-width Files](#4-features-in-reading-tabular-presentations-data)
 * [Writing CSV/TSV/Fixed-width Files](#5-features-in-writing-tabular-presentations-data)
-* [Performance](#6-performance-and-flexibility)
+* [Performance and Flexibility](#6-performance-and-flexibility)
 * [Design and Implementations](#7-design-and-implementations)
 
 ### 1. Overview
@@ -153,4 +153,4 @@ CsvParser parser = new CsvParser(settings);
 List<String[]> allRows = parser.parseAll(new FileReader("/myFile.csv"));
 ```
 
-The library offers a whole lot more features. I recommend you to have a lookas it really made a difference in our project.
+The library offers a whole lot more features. I recommend you to have a look as it really made a difference in our project.
