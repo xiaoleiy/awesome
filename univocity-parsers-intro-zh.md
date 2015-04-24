@@ -8,13 +8,13 @@
 
 ###目录###
 
-* [概述](#1-overview)
-* [安装](#2-installation)
-* [特性简介](#3-features-overview)
-* [CSV/TSV/定宽文本文件的读取](#4-features-in-reading-tabular-presentations-data)
-* [CSV/TSV/定宽文本文件的写入](#5-features-in-writing-tabular-presentations-data)
-* [性能与扩展性](#6-performance-and-flexibility)
-* [设计与实现](#7-design-and-implementations)
+* [概述](#1-概述)
+* [安装](#2-安装)
+* [特性简介](#3-特性简介)
+* [读取列表式数据](#4-读取列表式数据)
+* [写入列表式数据](#5-写入列表式数据)
+* [性能与扩展性](#6-性能与扩展性)
+* [设计与实现](#7-设计与实现)
 
 ### 1. 概述
 
@@ -80,7 +80,7 @@ writer.writeRowsAndClose(rows);
 
 如需查看文件写入相关的所有功能，请移步： [https://github.com/uniVocity/univocity-parsers/blob/master/README.md#writing](https://github.com/uniVocity/univocity-parsers/blob/master/README.md#writing)
 
-### 6. 性能与可扩展性
+### 6. 性能与扩展性
 
 如下为我们对比 uniVocity-parsers 和 JavaCSV 的测试对比表：
 
