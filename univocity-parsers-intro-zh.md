@@ -29,7 +29,7 @@
 实践之后发现它确实解决了我们的问题。除了更好的性能和扩展性之外，该库还为开发者提供了简洁易懂的API、开发文档和教程。
 对于高级的功能扩展诉求，官方提供对应的收费服务。
 
-该项目托管在[Github](https://github.com/uniVocity/univocity-parsers)上，截至目前，它已获得63颗星和8个派生版本。
+该项目托管在[Github](https://github.com/uniVocity/univocity-parsers)上，截至目前，它已获得69颗星和10个派生版本。
 你可以在[这里](http://www.univocity.com/pages/parsers-tutorial)和[这里](http://www.univocity.com/pages/parsers-features)找到相关开发文档和教程，
 也可以在[这里](http://www.univocity.com/blogs/news)找到更多例子和新闻。
 
