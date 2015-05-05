@@ -32,7 +32,7 @@ We came across this library [uniVocity-parsers](http://www.univocity.com/pages/a
 after a lot of testing and analysis, and we found it great. In addition of better performance and extendability, the library
 provides developers with simplified APIs, detailed documents & tutorials and commercial support for highly customized functionality.
 
-This project is hosted at [Github](https://github.com/uniVocity/univocity-parsers) with 62 stars & 8 forks (at the time of writing).
+This project is hosted at [Github](https://github.com/uniVocity/univocity-parsers) with 69 stars & 10 forks (at the time of writing).
 Tremendous documents & tutorials are provided at [here](http://www.univocity.com/pages/parsers-tutorial)
 and [here](http://www.univocity.com/pages/parsers-features).
 You can find more examples and news [here](http://www.univocity.com/blogs/news) as well.
