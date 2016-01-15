@@ -27,6 +27,10 @@ The awesome collections for development
 * one-page: http://websites.simplesphere.net/cleany/
 * one-page: http://azmind.com/premium/marco/v1-1/layout-1/index.html
 
+#### AngularJS
+* AngularJS Developer Guide - CN: https://github.com/1sters/Angularjs-Developer-Guide
+* AngularJS Tutorial CN: https://github.com/1sters/angularjs_tutorial_cn
+
 #### MVC
 * backboneJS: http://backbonejs.org/
 * underscoreJS: http://underscorejs.org/
@@ -89,6 +93,9 @@ The awesome collections for development
 
 #### Tutorials
 [git] switch from https to SSH: https://github.com/waylau/github-help/blob/master/Changing%20a%20remote's%20URL%20%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%A8%8B%20URL.md
+
+#### Tools
+* Sketch User Manual - CN: http://sketchcn.com/sketch-chinese-user-manual.html#introduce
 
 #### Just cool
 * An open-source status dashboard running on App Engine: https://github.com/twilio/stashboard
