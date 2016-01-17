@@ -96,6 +96,7 @@ The awesome collections for development
 
 #### Tools
 * Sketch User Manual - CN: http://sketchcn.com/sketch-chinese-user-manual.html#introduce
+* Git Cheat Sheet: https://github.com/ArslanBilal/Git-Cheat-Sheet/blob/master/other-sheets/git-cheat-sheet-zh.md
 
 #### Just cool
 * An open-source status dashboard running on App Engine: https://github.com/twilio/stashboard
